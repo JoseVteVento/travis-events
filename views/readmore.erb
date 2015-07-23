@@ -1,0 +1,20 @@
+<% if @event %>
+  <form action="/<%= @event.id%>/<%=Time.now.to_i%>" method="post" id="generate" class="invitation">
+  	<fieldset>
+  			
+	    <input type="hidden" name="_method" value="put">
+	    <div>
+	    	<p>Title: <%= @event.title %></p>
+	    	<p>Subject: <%= @event.subject %></p>
+	    	<p>Speakers: <%= @event.speaker %></p>
+	    	<p>Place: <%= @event.place %></p>
+	    	<p>Date: <%= @event.date %></p>
+	    </div> 
+	   
+    	<input type="submit" class="input_as_button" value="Assist"></input>
+    	
+    </fieldset>
+  </form>
+<% else %>
+  <p>event not found.</p>
+<% end %>

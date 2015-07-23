@@ -1,0 +1,45 @@
+<section id="add">
+	<fieldset>
+  <form action="/" method="post">
+  	
+    	<div class="lineas">
+	    	<label>Title </label>
+    		<textarea class="name" name="name" placeholder="Your event&hellip;"></textarea>
+		</div>
+		<div class="lineas">
+			<label>Subject </label>
+    		<textarea class="subject" name="subject" placeholder="The subject&hellip;"></textarea>
+		</div>
+		<div class="lineas">
+			<label>Speaker</label>
+    		<textarea class="subject" name="speaker" placeholder="And the speakers are&hellip;"></textarea>
+		</div>
+		<div class="lineas">
+			<label>Place </label>
+    		<textarea class="subject" name="place" placeholder="Where&hellip;"></textarea>
+		</div>
+		<div class="lineas">
+			<label>Date </label>
+			<textarea class="date" name="date" placeholder="when???"></textarea>		
+		</div>
+		<div class="lineas">
+			<input class="input_as_button" type="submit" value="Create event! ">
+		</div>
+   
+	
+  </form>
+ </fieldset>
+</section>
+ 
+<% @event.each do |event| %>
+  <article <%= 'class="complete"' if event.complete %>>
+    <p>
+      <%= event.title %>
+      <span><a href="/<%= event.id %>">[read more]</a></span>
+    </p>
+    <p class="links">
+      <a href="/<%= event.id %>/generate/<%=Time.now.to_i%>">&#8623;</a>
+    </p>
+   
+  </article>
+<% end %>
